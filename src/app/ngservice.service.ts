@@ -34,11 +34,16 @@ export class NgserviceService {
   postList(): Observable<any> {
     return this._http.get("http://localhost:8081/post/all");
   }
-  deletepost(id: number){
-    return this._http.delete("http://localhost:8081/post/delete/"+id,  { responseType: "text" } ); 
+  deletepost(id: number) {
+    return this._http.delete("http://localhost:8081/post/delete/" + id, { responseType: "text" });
   }
-  addpost(post : Post ): Observable<any> {
+  addpost(post: Post): Observable<any> {
     return this._http.put<any>("http://localhost:8081/post/add/1", post);
   }
-
+  updatepost(post: Post): Observable<any> {
+    return this._http.put<any>("http://localhost:8081/post/update", post)
+  }
+  getpostbyid(id: number): Observable<any>{
+    return this._http.get<any>("http://localhost:8081/post/"+id)
+  } 
 }
