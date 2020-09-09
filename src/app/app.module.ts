@@ -14,7 +14,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PostsComponent } from './posts/posts.component';
 import { HeaderComponent } from './header/header.component';
 import { HeroComponent } from './hero/hero.component';
-import { MyCartComponent } from './my-cart/my-cart.component'; 
+import { MyCartComponent } from './my-cart/my-cart.component';
+
+import { CartitemComponent } from './cartitem/cartitem.component'; 
 const material=[
   MatPaginatorModule
 ]; 
@@ -27,7 +29,9 @@ const material=[
     PostsComponent,
     HeaderComponent,
     HeroComponent,
-    MyCartComponent
+    MyCartComponent,
+ 
+    CartitemComponent
   ],
   imports: [
     BrowserModule,

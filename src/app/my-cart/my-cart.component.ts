@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { MycartServiceService } from '../mycart-service.service';
+import { error } from '@angular/compiler/src/util';
+
 
 @Component({
   selector: 'app-my-cart',
@@ -7,9 +10,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MyCartComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _service:MycartServiceService) { }
 
   ngOnInit(): void {
+   this._service.cartItemList().subscribe(
+     data=>console.log("running..............."),
+     error=>console.log("error occured")
+   )
   }
 
 }
