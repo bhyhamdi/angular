@@ -6,19 +6,28 @@ import {Observable, Subject} from 'rxjs';
 import { AuthData } from './auth-data.model';
 import {environment} from '../../../environments/environment';
 import Swal from "sweetalert2";
+import {User} from "../User.model";
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
   private isAuthenticated = false;
   private token: string;
   private tokenTAuthServiceimer: any;
-  private userId: string;
+  private userId: number;
   private authStatusListener = new Subject<boolean>();
-
+  u: User;
   constructor(private http: HttpClient, private router: Router) {}
 
   getIsAuth() {
     return this.isAuthenticated;
+  }
+  getuserId() {
+    if (this.isAuthenticated)
+    {
+
+      this.u = localStorage.getItem('user');
+      return
+    }
   }
 
   login(email: string, password: string) {
@@ -36,6 +45,7 @@ export class AuthService {
           }
           this.isAuthenticated = true;
           localStorage.setItem('user', JSON.stringify(resp));
+
         } else {
           Swal.fire(
             'Something went wrong',

@@ -15,7 +15,7 @@ export class PostsComponent implements OnInit {
   edit: boolean = true;
   elseBlock: boolean;
   newtextPost: string;
-  id : number =1; 
+  id: number = 1;
   constructor(private _service: NgserviceService, private _route: Router) { }
 
   ngOnInit(): void {
@@ -44,19 +44,19 @@ export class PostsComponent implements OnInit {
     this._service.getpostbyid(post.idPost).subscribe(
       data=>{
         console.log(post.idPost);
-        post=data ;  
+        post=data ;
       })
       console.log(post)
-      this.post= post ; 
+      this.post= post ;
   }
   save() {
     console.log(this.post)
     this._service.getpostbyid(this.post.idPost).subscribe(
       data=>{
         console.log(this.post.idPost);
-        this.post=data ;  
+        this.post=data ;
       }
-    )  
+    )
     console.log(this.newtextPost);
     this.post.textPost = this.newtextPost;
     this._service.updatepost(this.post).subscribe(
