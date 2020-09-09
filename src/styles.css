@@ -432,6 +432,7 @@ ol {
 	line-height: 1;
 	padding: 17px 0;
 	position: relative;
+  text-underline: transparent;
 }
 
 .main-menu li a .new {
@@ -2417,7 +2418,6 @@ ol {
 	.social-links a span {
 		display: none;
     }
-    
 
 
 
@@ -2426,5 +2426,6 @@ ol {
 
 
 
-    
+
+
 }
