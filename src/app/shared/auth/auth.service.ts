@@ -21,14 +21,6 @@ export class AuthService {
   getIsAuth() {
     return this.isAuthenticated;
   }
-  getuserId() {
-    if (this.isAuthenticated)
-    {
-
-      this.u = localStorage.getItem('user');
-      return
-    }
-  }
 
   login(email: string, password: string) {
     const authData: AuthData = { email, password };

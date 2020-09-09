@@ -20,6 +20,7 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatCardModule} from '@angular/material/card';
 import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
+
 import { HeaderComponent } from './header/header.component';
 import { HeroComponent } from './hero/hero.component';
 import { MyCartComponent } from './my-cart/my-cart.component';
@@ -35,11 +36,13 @@ const material = [
     EditarticleComponent,
     AddaricelComponent,
     PostsComponent,
+
     LoginComponent,
     HeaderComponent,
     HeroComponent,
     MyCartComponent,
     SignupComponent
+
   ],
   imports: [
     BrowserModule,
