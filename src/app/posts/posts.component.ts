@@ -16,6 +16,7 @@ export class PostsComponent implements OnInit {
   elseBlock: boolean;
   newtextPost: string;
   id : number =1; 
+  
   constructor(private _service: NgserviceService, private _route: Router) { }
 
   ngOnInit(): void {
@@ -27,7 +28,7 @@ export class PostsComponent implements OnInit {
       },
       error => console.log("erreur ")
     )
-
+      this.post.textPost =""; 
 
 
   }
@@ -66,6 +67,7 @@ export class PostsComponent implements OnInit {
       })
   }
   addpost() {
+    
     if (this.post.textPost != "") {
       this._service.addpost(this.post).subscribe(
         data => {
@@ -76,6 +78,42 @@ export class PostsComponent implements OnInit {
         })
     }
   }
+  like (post : Post) {
+    this._service.getpostbyid(post.idPost).subscribe(
+      data=>{
+        console.log(post.idPost);
+       
+        post=data ;  
+        this.post= post ;
+        this.post.like++
+        this._service.updatepost(this.post).subscribe(
+          data => {
+            console.log("like up to date ");
+            console.log(this.post);
+            this.ngOnInit();
+          })
+         
+      })
+      
+  }
+  dislike (post: Post) {
+    this._service.getpostbyid(post.idPost).subscribe(
+      data=>{
+        console.log(post.idPost);
+       
+        post=data ;  
+        this.post= post ;
+        this.post.dislike++
+        this._service.updatepost(this.post).subscribe(
+          data => {
+            console.log("dislike up to date ");
+            console.log(this.post);
+            this.ngOnInit();
+          })
+        
+      })
+      
+    }
 
 
 }

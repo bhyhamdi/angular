@@ -46,4 +46,5 @@ export class NgserviceService {
   getpostbyid(id: number): Observable<any>{
     return this._http.get<any>("http://localhost:8081/post/"+id)
   } 
+
 }
