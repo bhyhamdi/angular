@@ -26,9 +26,8 @@ export class ArticlelistComponent implements OnInit {
 
       },
       error => console.log("erreur ")
-
     )
-    
+
   }
   add_aritcle() {
     this._route.navigate(['/addaricle']);
@@ -65,8 +64,8 @@ export class ArticlelistComponent implements OnInit {
     this._service.getFacture().subscribe(
       data => {
         console.log("facture done ") });
-    
-  } 
+
+  }
 
 }
 

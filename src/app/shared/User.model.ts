@@ -5,13 +5,13 @@ export class User {
 
   name: string;
 
-  familyname: string;
+  family_name: string;
 
   password: string;
 
   adress: string;
   email: string;
 
-  Role;
+  role;
 
 }
