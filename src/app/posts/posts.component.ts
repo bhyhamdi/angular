@@ -15,8 +15,7 @@ export class PostsComponent implements OnInit {
   edit: boolean = true;
   elseBlock: boolean;
   newtextPost: string;
-  id : number =1; 
-  
+  id : number =1;
   constructor(private _service: NgserviceService, private _route: Router) { }
 
   ngOnInit(): void {
@@ -28,7 +27,7 @@ export class PostsComponent implements OnInit {
       },
       error => console.log("erreur ")
     )
-      this.post.textPost =""; 
+      this.post.textPost ="";
 
 
   }
@@ -45,19 +44,19 @@ export class PostsComponent implements OnInit {
     this._service.getpostbyid(post.idPost).subscribe(
       data=>{
         console.log(post.idPost);
-        post=data ;  
+        post=data ;
       })
       console.log(post)
-      this.post= post ; 
+      this.post= post ;
   }
   save() {
     console.log(this.post)
     this._service.getpostbyid(this.post.idPost).subscribe(
       data=>{
         console.log(this.post.idPost);
-        this.post=data ;  
+        this.post=data ;
       }
-    )  
+    )
     console.log(this.newtextPost);
     this.post.textPost = this.newtextPost;
     this._service.updatepost(this.post).subscribe(
@@ -67,7 +66,7 @@ export class PostsComponent implements OnInit {
       })
   }
   addpost() {
-    
+
     if (this.post.textPost != "") {
       this._service.addpost(this.post).subscribe(
         data => {
@@ -82,8 +81,8 @@ export class PostsComponent implements OnInit {
     this._service.getpostbyid(post.idPost).subscribe(
       data=>{
         console.log(post.idPost);
-       
-        post=data ;  
+
+        post=data ;
         this.post= post ;
         this.post.like++
         this._service.updatepost(this.post).subscribe(
@@ -92,16 +91,16 @@ export class PostsComponent implements OnInit {
             console.log(this.post);
             this.ngOnInit();
           })
-         
+
       })
-      
+
   }
   dislike (post: Post) {
     this._service.getpostbyid(post.idPost).subscribe(
       data=>{
         console.log(post.idPost);
-       
-        post=data ;  
+
+        post=data ;
         this.post= post ;
         this.post.dislike++
         this._service.updatepost(this.post).subscribe(
@@ -110,9 +109,9 @@ export class PostsComponent implements OnInit {
             console.log(this.post);
             this.ngOnInit();
           })
-        
+
       })
-      
+
     }
 
 
